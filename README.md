@@ -1,1 +1,1 @@
-# goodvtubersubs.github.io
+# GoodVTuberSubs website
