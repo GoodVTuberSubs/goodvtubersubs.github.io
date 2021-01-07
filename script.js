@@ -21,6 +21,7 @@ var titles = [
     "\"i wish all subbers a very pleasant evening\"",
     "\"Are translation hackathons a thing?<br/>Like, multiple translators trying to find the best way to translate a literary work?\"",
     "\"Shoutout to subbing teams using Git to update and QC Aegisub files.\"",
+    "\"If you have some free time, try reading the Additional Readings and Materials!\""
  ];
 
  function newTitle () {
