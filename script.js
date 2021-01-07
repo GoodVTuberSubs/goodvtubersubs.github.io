@@ -10,17 +10,17 @@ var titles = [
     "「どこ見てんだよ？」",
     "\"Yes, good subs do exist.\"",
     "\"It doesn't hurt to have higher standards.\"",
-    "\"This is your reminder that your favorite VTuber might be streaming right now, and YouTube probably forgot to notify you. Again.\"",
+    "\"This is your reminder that your favorite VTuber might be streaming right now,<br/>and YouTube probably forgot to notify you.<br/>Again.\"",
     "「スーパーチャットターイム」",
     "\"/gvs is the hotstring\"",
     ":LunaGalaxyBrain:",
     "\"No translation is nor can be perfect; only good enough.\"",
-    "\"You can't just leave 'yabai' in the subs because 'yabai' isn't an English word. Translate it.\"",
-    "\"Good translation isn't just about converting words, but conveying the same meaning and feeling to another language.\"",
-    "\"Getting your favorite VTuber to notice your translations has got to be the *biggest* flex ever. Screw the ad money.\"",
+    "\"You can't just leave 'yabai' in the subs because 'yabai' isn't an English word.<br/>Translate it.\"",
+    "\"Good translation isn't just about converting words,<br/>but conveying the same meaning and feeling to another language.\"",
+    "\"Getting your favorite VTuber to notice your translations has got to be the *biggest* flex ever.<br/>Screw the ad money.\"",
     "\"i wish all subbers a very pleasant evening\"",
-    "\"Are translation hackathons a thing? Like, multiple translators trying to find the best way to translate a literary work?\"",
-    "\"Shoutout to subbing teams using Git to update and QC Aegisub files.\""
+    "\"Are translation hackathons a thing?<br/>Like, multiple translators trying to find the best way to translate a literary work?\"",
+    "\"Shoutout to subbing teams using Git to update and QC Aegisub files.\"",
  ];
 
  function newTitle () {
