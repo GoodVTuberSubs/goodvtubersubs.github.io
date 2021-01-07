@@ -1,0 +1,21 @@
+section {
+    padding: 1em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    }
+    
+ h1{
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-size: 4rem;
+ }
+ p{
+    font-size: 2rem;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    color: gray;
+    animation: fadeInUp; 
+    animation-duration: 1.5s;
+ }
