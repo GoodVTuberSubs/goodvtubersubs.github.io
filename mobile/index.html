@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://apis.google.com/js/api.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <script>
+    /**
+     * Sample JavaScript code for youtube.videos.list
+     * See instructions for running APIs Explorer code samples locally:
+     * https://developers.google.com/explorer-help/guides/code_samples#javascript
+     */
+    
+    
+    function authenticate() {
+      return gapi.auth2.getAuthInstance()
+          .signIn({scope: "https://www.googleapis.com/auth/youtube.readonly"})
+          .then(function() { console.log("Sign-in successful"); },
+                function(err) { console.error("Error signing in", err); });
+    }
+    function loadClient() {
+      gapi.client.setApiKey("AIzaSyARFohjktdlwjxWGw_BgxWX_j0SfeEDJxY");
+      return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
+          .then(function() { console.log("GAPI client loaded for API"); },
+                function(err) { console.error("Error loading GAPI client for API", err); });
+    }
+    // Make sure the client is loaded and sign-in is complete before calling this method.
+    function execute() {
+      var YT_Link = document.getElementById('IDinput').value;
+      var YT_ID = YT_Link.split('/')[3];
+      return gapi.client.youtube.videos.list({
+        "part": [
+          "snippet"
+        ],
+        "id": [
+          YT_ID
+        ]
+      })
+          .then(function(response) {
+                  // Handle the results here (response.result has the parsed body).
+                  console.log("Response", response);
+                  var YT_title = response.result.items[0].snippet.title;
+                  var YT_channel = response.result.items[0].snippet.channelTitle;
+                  var result = YT_title + "\n" + YT_Link + "\nTranslated by ➡️ " + YT_channel;
+                  var YT_thumbnail = "<img src=\"" + response.result.items[0].snippet.thumbnails.maxres.url + "\" height=\"500px\">";
+                  document.getElementById('result').innerHTML = result;
+                  document.getElementById('embedSpace').innerHTML = YT_thumbnail;
+                },
+                function(err) { console.error("Execute error", err); });
+    }
+    function copy(){
+      document.querySelector("#result").select();
+      document.execCommand('copy');
+    }
+    gapi.load("client:auth2", function() {
+      gapi.auth2.init({client_id: "504205848333-roqj4kijfbba2t0dad71hmj7emd72mf6.apps.googleusercontent.com"});
+      
+    });
+  </script>
+  <script>
+    
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</head>
+<body onload="loadClient()">
+  <input class="form-control" id="IDinput" placeholder="YouTube Link">
+  <button onclick="execute()" class="btn btn-primary mb-3">execute</button>
+  <p id="embedSpace"></p>
+  <textarea id="result" class="form-control" rows="3"></textarea>
+  <button onclick="copy()" id="copyButton" class="btn btn-primary mb-3">Copy</button>
+</body>
+</html>
