@@ -60,16 +60,28 @@
       
     });
   </script>
-  <script>
-    
-  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  <style>
+    .btn {
+      font-size: 3rem;
+      width: 100%;
+    }
+    .form-control{
+      font-size: 3rem;
+    }
+    .logo {
+      padding: 8rem;
+    }
+  </style>
 </head>
 <body onload="loadClient()">
-  <input class="form-control" id="IDinput" placeholder="YouTube Link">
-  <button onclick="execute()" class="btn btn-primary mb-3">execute</button>
-  <p id="embedSpace"></p>
-  <textarea id="result" class="form-control" rows="3"></textarea>
+  <div style="width:100%;text-align:center;" class="logo">
+    <img src="../icon.png" />
+  </div>
+  <input class="form-control" id="IDinput" placeholder="YouTube Link" onkeyup="execute()">
+  <div style="width:100%;text-align:center;" id="embedSpace"></div>
+  <textarea id="result" class="form-control" rows="5"></textarea>
   <button onclick="copy()" id="copyButton" class="btn btn-primary mb-3">Copy</button>
 </body>
 </html>
