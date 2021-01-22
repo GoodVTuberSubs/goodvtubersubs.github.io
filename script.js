@@ -4,7 +4,7 @@ var titles = [
     "\"Also follow @BadVTuberSubs!\"",
     "\"I think it's about time we have a TED talk on VTubers.\"",
     "\"Watch that CPS counter, yo\"",
-    ":AyameDespair:",
+    '<img src="/img/ayamedespair.png" alt=":AyameDespair:" title=":AyameDespair:">',
     "\"These are the alternatives you are looking for.\"",
     "\"Keep an eye out for when a translator does a translation stream!\"",
     "「どこ見てんだよ？」",
@@ -13,7 +13,7 @@ var titles = [
     "\"This is your reminder that your favorite VTuber might be streaming right now,<br/>and YouTube probably forgot to notify you.<br/>Again.\"",
     "「スーパーチャットターイム」",
     "\"/gvs is the hotstring\"",
-    ":LunaGalaxyBrain:",
+    '<img src="/img/lunagalaxybrain.png" alt=":LunaGalaxyBrain:" title=":LunaGalaxyBrain:">',
     "\"No translation is nor can be perfect; only good enough.\"",
     "\"You can't just leave 'yabai' in the subs because 'yabai' isn't an English word.<br/>Translate it.\"",
     "\"Good translation isn't just about converting words,<br/>but conveying the same meaning and feeling to another language.\"",
@@ -21,7 +21,8 @@ var titles = [
     "\"i wish all subbers a very pleasant evening\"",
     "\"Are translation hackathons a thing?<br/>Like, multiple translators trying to find the best way to translate a literary work?\"",
     "\"Shoutout to subbing teams using Git to update and QC Aegisub files.\"",
-    "\"If you have some free time, try reading the Additional Readings and Materials!\""
+    "\"If you have some free time, try reading the Additional Readings and Materials!\"",
+    '<img src="/img/cocookite.gif" width="64px" alt=":gifCocoOkite:" title="OKITE OKITE OKITE">'
  ];
 
  function newTitle () {
