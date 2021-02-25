@@ -16,6 +16,5 @@
     font-size: 2rem;
     font-family: Roboto, Noto Sans JP, Arial, Helvetica, sans-serif;
     color: gray;
-    animation: fadeInUp; 
-    animation-duration: 1.5s;
+    --animate-delay: 0.5s;
  }
