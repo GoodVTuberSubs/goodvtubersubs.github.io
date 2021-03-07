@@ -39,7 +39,19 @@
     // Make sure the client is loaded and sign-in is complete before calling this method.
     function execute() {
       var YT_Link = document.getElementById('IDinput').value;
-      var YT_ID = YT_Link.split('/')[3];
+      if(YT_Link.includes("youtube.com"))
+      {
+        var YT_ID = YT_Link.split('/')[3];
+      }
+      else if(YT_Link.includes("youtu.be"))
+      {
+        var YT_ID = YT_Link.split('=')[1];
+      }
+      else
+      {
+        var YT_ID = YT_Link
+      }
+      
       return gapi.client.youtube.videos.list({
         "part": [
           "snippet"
@@ -125,6 +137,9 @@
     <div style="width:100%;text-align:center;" id="embedSpace"></div>
     <textarea id="result" class="form-control" rows="5"></textarea>
     <button onclick="copy()" id="copyButton" class="btn btn-primary mb-3">Copy</button>
-</div>
+    <div style="position: absolute; bottom: 5px; background-color: green">
+      Good VTuber Subs Formatter v2021.3.7.1039
+    </div>
+  </div>
 </body>
 </html>
