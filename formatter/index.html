@@ -68,7 +68,7 @@
                   console.log("Response", response);
                   var YT_title = response.result.items[0].snippet.localized.title;
                   var YT_channel = response.result.items[0].snippet.channelTitle;
-                  var result = YT_title + "\n" + YT_Link + "\nTranslated by ➡️ " + YT_channel;
+                  var result = YT_title + "\n" + "https://youtu.be/" + YT_ID + "\nTranslated by ➡️ " + YT_channel;
                   document.getElementById('result').innerHTML = result;
                   var YT_thumbnail = "<img src=\"" + response.result.items[0].snippet.thumbnails.maxres.url + "\" width=\"100%\">";
                   document.getElementById('embedSpace').innerHTML = YT_thumbnail;
