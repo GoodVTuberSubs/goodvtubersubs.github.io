@@ -26,10 +26,10 @@ var titles = [
     "It's always a good idea to get a proofreader or an editor! The more eyes to see the final project before upload, the better!"
 ];
 var icons = [
-   '<img src="icon.png" class="animate__animated animate__zoomIn animate__fadeIn animate__delay-1s" />',
-   '<img src="icon_niji.png" class="animate__animated animate__zoomIn animate__fadeIn animate__delay-1s" />',
-   '<img src="icon_voms.png" class="animate__animated animate__zoomIn animate__fadeIn animate__delay-1s" />',
-   '<img src="icon_ai.png" class="animate__animated animate__zoomIn animate__fadeIn animate__delay-1s" />'
+   '<img src="/img/icon.png" class="animate__animated animate__zoomIn animate__fadeIn animate__delay-1s" />',
+   '<img src="/img/icon_niji.png" class="animate__animated animate__zoomIn animate__fadeIn animate__delay-1s" />',
+   '<img src="/img/icon_voms.png" class="animate__animated animate__zoomIn animate__fadeIn animate__delay-1s" />',
+   '<img src="/img/icon_ai.png" class="animate__animated animate__zoomIn animate__fadeIn animate__delay-1s" />'
 ];
 function newTitle () {
    var i = (Math.random() * titles.length) | 0;
