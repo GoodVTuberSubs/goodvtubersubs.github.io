@@ -70,7 +70,13 @@
                   var YT_channel = response.result.items[0].snippet.channelTitle;
                   var result = YT_title + "\n" + "https://youtu.be/" + YT_ID + "\nTranslated by ➡️ " + YT_channel;
                   document.getElementById('result').innerHTML = result;
-                  var YT_thumbnail = "<img src=\"" + response.result.items[0].snippet.thumbnails.maxres.url + "\" width=\"100%\">";
+                  try{
+                    var YT_thumbnailLink = response.result.items[0].snippet.thumbnails.maxres.url;
+                  }
+                  catch{
+                    var YT_thumbnailLink = response.result.items[0].snippet.thumbnails.standard.url;
+                  }
+                  var YT_thumbnail = "<img src=\"" + YT_thumbnailLink + "\" width=\"100%\">";
                   document.getElementById('embedSpace').innerHTML = YT_thumbnail;
                 },
                 function(err) { console.error("Execute error", err); });
