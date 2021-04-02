@@ -1,4 +1,4 @@
-/*var titles = [
+var titles = [
     "Good subs shouldn't be hard to come by.",
     "Imagine if I made the site in Aegisub.",
     "Also follow @BadVTuberSubs!",
@@ -24,8 +24,8 @@
     '<img src="/img/cocookite.gif" width="64px" alt=":CocoOkite:" title="OKITE OKITE OKITE">',
     '<img src="/img/cps.png" width="64px" alt=":AegisubCPSred:" title="I TOLD YOU TO WATCH THE CPS">',
     "It's always a good idea to get a proofreader or an editor! The more eyes to see the final project before upload, the better!"
-];*/
-var titles = [
+];
+/*var titles = [
       "Also follow @BadVTuberSubs!",
       "Hmmmn~ well isn't this a bruh moment",
       "Please don't typeset in Comic Sans.",
@@ -33,16 +33,16 @@ var titles = [
       "This was legitimately a last-minute April Fools idea.",
       "You're not a NijiSpy, are ya?",
       "HAACHAMACHAMAHAACHAMACHAMAHAACHAMACHAMAHAACHAMACHAMAHAACHAMACHAMAHAACHAMACHAMAHAAC"
-];
-var icons = [
-   '<img src="/img/icon_manga.png" class="animate__animated animate__zoomIn animate__fadeIn animate__delay-1s" />'
-];
+];*/
 /*var icons = [
+   '<img src="/img/icon_manga.png" class="animate__animated animate__zoomIn animate__fadeIn animate__delay-1s" />'
+];*/
+var icons = [
    '<img src="/img/icon.png" class="animate__animated animate__zoomIn animate__fadeIn animate__delay-1s" />',
    '<img src="/img/icon_niji.png" class="animate__animated animate__zoomIn animate__fadeIn animate__delay-1s" />',
    '<img src="/img/icon_voms.png" class="animate__animated animate__zoomIn animate__fadeIn animate__delay-1s" />',
    '<img src="/img/icon_ai.png" class="animate__animated animate__zoomIn animate__fadeIn animate__delay-1s" />'
-];*/
+];
 function newTitle () {
    var i = (Math.random() * titles.length) | 0;
    document.getElementById('target').innerHTML = titles[i];
