@@ -69,7 +69,7 @@
                   var YT_title = response.result.items[0].snippet.localized.title;
                   var YT_channel = response.result.items[0].snippet.channelTitle;
                   var result = YT_title + "\n" + "https://youtu.be/" + YT_ID + "\nTranslated by ➡️ " + YT_channel;
-                  document.getElementById('result').innerHTML = result;
+                  document.getElementById('result').value = result;
                   try{
                     var YT_thumbnailLink = response.result.items[0].snippet.thumbnails.maxres.url;
                   }
