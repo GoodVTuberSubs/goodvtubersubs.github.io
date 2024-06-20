@@ -39,6 +39,7 @@
     // Make sure the client is loaded and sign-in is complete before calling this method.
     function execute() {
       var YT_Link = document.getElementById('IDinput').value;
+      YT_Link = YT_Link.substring(0, YT_Link.indexOf('&'));
       if(YT_Link.includes("youtu.be"))
       {
         var YT_ID = YT_Link.split('/')[3];
