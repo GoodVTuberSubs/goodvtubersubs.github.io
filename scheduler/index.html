@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Good VTuber Subs</title>
+      <meta charset="utf-8" /> 
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+      <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+      <link rel="manifest" href="../site.webmanifest">
+      <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#4ea0f0">
+      <meta name="msapplication-TileColor" content="#4ea0f0">
+      <meta name="theme-color" content="#ffffff">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <script src="https://apis.google.com/js/api.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <script>
+    /**
+     * Sample JavaScript code for youtube.videos.list
+     * See instructions for running APIs Explorer code samples locally:
+     * https://developers.google.com/explorer-help/guides/code_samples#javascript
+     */
+    
+    
+    function authenticate() {
+      return gapi.auth2.getAuthInstance()
+          .signIn({scope: "https://www.googleapis.com/auth/youtube.readonly"})
+          .then(function() { console.log("Sign-in successful"); },
+                function(err) { console.error("Error signing in", err); });
+    }
+    function loadClient() {
+      gapi.client.setApiKey("AIzaSyARFohjktdlwjxWGw_BgxWX_j0SfeEDJxY");
+      return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
+          .then(function() { console.log("GAPI client loaded for API"); },
+                function(err) { console.error("Error loading GAPI client for API", err); });
+    }
+    // Make sure the client is loaded and sign-in is complete before calling this method.
+    function execute() {
+      var YT_Link = document.getElementById('IDinput').value;
+      if(YT_Link.includes("youtu.be"))
+      {
+        var YT_ID = YT_Link.split('/')[3];
+      }
+      else if(YT_Link.includes("youtube.com"))
+      {
+        var YT_ID = YT_Link.split('=')[1];
+      }
+      else
+      {
+        var YT_ID = YT_Link
+      }
+      
+      return gapi.client.youtube.videos.list({
+        "part": [
+          "snippet"
+        ],
+        "id": [
+          YT_ID
+        ],
+        "hl": [
+          "en_US"
+        ]
+      })
+          .then(function(response) {
+                  // Handle the results here (response.result has the parsed body).
+                  console.log("Response", response);
+                  var YT_title = response.result.items[0].snippet.localized.title;
+                  var YT_channel = response.result.items[0].snippet.channelTitle;
+                  //var result = YT_title + "\n" + "https://youtu.be/" + YT_ID + "\nTranslated by ➡️ " + YT_channel;
+                  //document.getElementById('result').value = result;
+                  var YT_date = new Date(response.result.items[0].snippet.publishedAt);
+                  const options = {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  };
+                  var YT_dateproc = YT_date.toLocaleDateString("en-PH", options)
+                  document.getElementById('linkInput').value = "https://youtu.be/" + YT_ID;
+                  document.getElementById('titleInput').value = YT_title;
+                  document.getElementById('dateInput').value = YT_dateproc;
+                  try{
+                    var YT_thumbnailLink = response.result.items[0].snippet.thumbnails.maxres.url;
+                  }
+                  catch{
+                    var YT_thumbnailLink = response.result.items[0].snippet.thumbnails.standard.url;
+                  }
+                  var YT_thumbnail = "<img src=\"" + YT_thumbnailLink + "\" width=\"100%\">";
+                  document.getElementById('embedSpace').innerHTML = YT_thumbnail;
+                },
+                function(err) { console.error("Execute error", err); });
+    }
+    function copy(param){
+      document.querySelector(param).select();
+      document.execCommand('copy');
+    }
+    gapi.load("client:auth2", function() {
+      gapi.auth2.init({client_id: "504205848333-roqj4kijfbba2t0dad71hmj7emd72mf6.apps.googleusercontent.com"});
+      
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  <style>
+    @media screen and (min-width: 601px) {
+      .main-div{
+        width: 500px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .btn {
+      font-size: 1rem;
+      }
+      .form-control{
+        font-size: 1rem;
+      }
+      .logo {
+        padding: 3rem;
+      }
+      .logo-img{
+        width: 40%;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      .main-div{
+        width: 100%;
+      }
+      .btn {
+      font-size: 1rem;
+      }
+      .form-control{
+        font-size: 1rem;
+      }
+      .logo {
+        padding: 2rem;
+      }
+      .logo-img{
+        width: 40%;
+      }
+    }
+    
+  </style>
+</head>
+<body onload="loadClient()">
+  <div class="main-div">
+    <div style="width:100%;text-align:center;" class="logo">
+      <img src="/img/icon.png" class="logo-img"/>
+    </div>
+    <input class="form-control" id="IDinput" placeholder="YouTube Link" onkeyup="execute()">
+    <div style="width:100%;text-align:center;" id="embedSpace"></div>
+    <br>
+    <label for="linkInput">Link</label>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <input class="form-control" id="linkInput">
+          </div>
+        <div class="col-auto">
+          <button onclick="copy('#linkInput')" id="copyButton" class="btn btn-primary mb-3">Copy</button>
+        </div>
+      </div>
+    </div>
+    <label for="titleInput">Title</label>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <input class="form-control" id="titleInput">
+          </div>
+        <div class="col-auto">
+          <button onclick="copy('#titleInput')" id="copyButton" class="btn btn-primary mb-3">Copy</button>
+        </div>
+      </div>
+    </div>
+    <label for="dateInput">Date</label>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <input class="form-control" id="dateInput">
+          </div>
+        <div class="col-auto">
+          <button onclick="copy('#dateInput')" id="copyButton" class="btn btn-primary mb-3">Copy</button>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <div style="position: absolute;bottom: 15px;text-align: center;width: 100%">Good VTuber Subs Formatter v2022.9.19.2346
+  </div>
+</body>
+</html>
